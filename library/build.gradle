@@ -2,7 +2,6 @@ apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion as Integer
-    buildToolsVersion rootProject.ext.buildToolsVersion as String
 
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion as Integer
@@ -17,11 +16,6 @@ android {
 }
 
 dependencies {
-    compile "com.android.support:recyclerview-v7:${rootProject.supportLibsVersion}"
-}
-
-apply from: 'gradle-maven-push.gradle'
-
-afterEvaluate {
-    androidJavadocs.classpath += project.android.libraryVariants.toList().first().javaCompile.classpath
+    implementation 'androidx.appcompat:appcompat:1.0.1'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
 }
